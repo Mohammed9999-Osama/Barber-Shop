@@ -1,0 +1,743 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  list-style: none;
+  box-sizing:border-box;
+}
+:root {
+  --white-color:                  #ffffff;
+  --primary-color:                #d6a354;
+  --secondary-color:              #c12828;
+  --section-bg-color:             #f0f8ff;
+  --custom-btn-bg-color:          #c12828;
+  --custom-btn-bg-hover-color:    #FDBB2D;
+  --dark-color:                   #000000;
+  --p-color:                      #717275;
+  --border-color:                 #7fffd4;
+  --link-hover-color:             #B22727;
+
+  --body-font-family:             'Unbounded', cursive;
+
+  --h1-font-size:                 74px;
+  --h2-font-size:                 46px;
+  --h3-font-size:                 32px;
+  --h4-font-size:                 28px;
+  --h5-font-size:                 24px;
+  --h6-font-size:                 22px;
+  --p-font-size:                  20px;
+  --btn-font-size:                16px;
+  --copyright-font-size:          14px;
+
+  --border-radius-large:          100px;
+  --border-radius-medium:         20px;
+  --border-radius-small:          10px;
+
+  --font-weight-thin:             200;
+  --font-weight-light:            300;
+  --font-weight-normal:           400;
+  --font-weight-bold:             700;
+}
+
+body {
+  background-color: var(--white-color);
+  font-family: var(--body-font-family); 
+}
+html{
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+
+/*---------------------------------------
+  TYPOGRAPHY               
+-----------------------------------------*/
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--dark-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-bold);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+p {
+  color: var(--p-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-light);
+}
+
+ul li {
+  color: var(--p-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-light);
+}
+
+a, 
+button {
+  touch-action: manipulation;
+  transition: all 0.3s;
+}
+
+a {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
+section{
+  padding: 100px 50px;
+  /* background-color:#000000; */
+}
+/* start code section */
+#header .nave-bar {
+  overflow: hidden;
+  background-color: var(--primary-color);
+
+}
+#header .nave-bar ul{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0%;
+  bottom: 100%;
+  z-index: 11;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  transition: bottom 0.3s ease;
+  -webkit-transition: bottom 0.3s ease;
+  -moz-transition: bottom 0.3s ease;
+  -ms-transition: bottom 0.3s ease;
+  -o-transition: bottom 0.3s ease;
+}
+#header .nave-bar ul.active{
+  bottom: 0;
+}
+#header .nave-bar ul li img{
+  margin: 50px 0px;
+}
+#header .nave-bar ul li a{
+  color: #fff;
+  text-transform: uppercase;
+  padding: 20px;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  position: relative;
+  z-index: 1;
+}
+#header .nave-bar ul li a::after{
+  /* content: attr(dat-after); */
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  font-size: 10rem;
+  text-align: center;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+}
+#header .nave-bar ul li:hover a::after{
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+	letter-spacing: initial;
+}
+
+#header .nave-bar div{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  position: fixed;
+  right: 20px;
+  padding-left: 10px;
+  top: 30px;
+  width: 60px;
+  height: 60px;
+  z-index: 9999999;
+  cursor: pointer;
+  background-color:#fff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+#header .nave-bar div .bar{  
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background-color:rgb(0, 255, 26);
+}
+#header .nave-bar .bar::after,
+#header .nave-bar .bar::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+#header .nave-bar .bar::after{
+  top: 8px;
+}
+#header .nave-bar .bar::before{
+  bottom: 8px;
+}
+
+
+/* end navebar */
+#section_1{
+  background-image: url(../images/client-doing-hair-cut-barber-shop-salon.jpg);
+  background-position:center;
+  height: 100vh;
+  border-bottom:var(--primary-color) 10px solid;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+#section_1::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#000000;
+  opacity: 0.5;
+  z-index: -1;
+}
+#section_1 h1{
+  color: var(--white-color);
+}
+#section_1 p{
+  color: var(--white-color);
+}
+#section_1 button{
+  padding: 10px 30px;
+  background-color:transparent;
+  color: var(--white-color);
+  font-size: var(--btn-font-size);
+  text-transform: capitalize;
+  border:0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  font-weight: 700;
+}
+
+#section_1 .home button.btn1{
+  border:2px white solid ;
+}
+#section_1 .home button.btn2{
+  background-color: var(--secondary-color) ;
+}
+#section_1 .home button:hover{
+  background-color:var(--custom-btn-bg-hover-color);
+  border:transparent;
+}
+  #section_1 .home div {
+    width:400px;
+    height:400px;
+    position: absolute;
+    right: -10%;
+    bottom: -20%;
+    z-index: 1;
+    padding:  100px;
+}
+#section_1 .home div::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#000000;
+  z-index: -1;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+#section_1 .home div button{
+  background-color:var(--custom-btn-bg-hover-color) !important;
+}
+#section_1 .home div button:hover{
+  background-color: red !important;
+}
+/* end hero section or home section */
+#ourStory .ourStory-bottom h6 {
+  color: var(--secondary-color);
+  margin-bottom: 50px;
+}
+#ourStory .ourStory-bottom .col{
+  background-color:#d6a354;
+  height: 250px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+  margin-top: 30px;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+#ourStory .ourStory-bottom .col:hover{
+  background: linear-gradient(  #FDBB2D , #7fffd4);
+  transform: scale(1.07);
+  -webkit-transform: scale(1.07);
+  -moz-transform: scale(1.07);
+  -ms-transform: scale(1.07);
+  -o-transform: scale(1.07);
+}
+#ourStory .ourStory-bottom .col::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url(../images/barber/portrait-mid-adult-bearded-male-barber-with-folded-arms.jpg);
+  background-position: center ;
+  background-size: cover;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: rotate(8deg);
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+#ourStory .ourStory-bottom .col2::after{
+  background-image: url(../images/barber/portrait-male-hairdresser-with-scissors.jpg);
+}
+#ourStory .ourStory-bottom .col .col-items{
+  position: absolute;
+  bottom: 20px;
+}
+
+#ourStory .col .col-items .col-item-reight div{
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  -webkit-transition: background-color 0.1s ease;
+  -moz-transition: background-color 0.1s ease;
+  -ms-transition: background-color 0.1s ease;
+  -o-transition: background-color 0.1s ease;
+}
+#ourStory .col .col-items .col-item-reight div:hover {
+  background-color: var(--primary-color);
+}
+#ourStory .col .col-items .col-item-reight div i{
+  color: white;
+}
+/* end section ourStory */
+.Discount{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  width: 100%;
+  padding: 35px 0px;
+  background-attachment: fixed;
+  background-image:url(..//images/barber-customer-giving-high-five.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+.Discount::after{
+  left: 0;
+  top: 0;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color:black;
+  opacity: 0.6;
+}
+.Discount h2{
+  color: var(--custom-btn-bg-color);
+  padding: 14px 0px;
+}
+.Discount p{
+  padding-bottom: 14px;
+}
+.Discount strong{
+  background-color:var(--section-bg-color);
+  padding: 8px 24px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+/* end Discount */
+#services .col{
+  position: relative;
+  overflow: hidden;
+}
+
+#services .col figcaption{
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: 7%;
+  bottom: 7%;
+  border: solid 1px red;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: border 0.3s ease;
+  -webkit-transition: border 0.3s ease;
+  -moz-transition: border 0.3s ease;
+  -ms-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+}
+#services .col:hover figcaption{
+  border: 5px solid red;
+}
+#services .col figure img{
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  overflow: hidden;
+}
+#services .col:hover img{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+#services .col figcaption strong{
+  padding: 4px 8px;
+  font-size: 1.5rem;
+  background-color:var(--primary-color);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+/* end section services */
+.BookASeat{
+  width: 100%;
+  padding: 35px 0px;
+  background-attachment: fixed;
+  background-image:url(..//images/barber-customer-giving-high-five.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+/* active */
+
+.BookASeat::after{
+  left: 0;
+  top: 0;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color:black;
+  opacity: 0.6;
+}
+/* end BookASeat */
+#price .price-list strong{
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+#price .col2{
+  background-color:#d6a354;
+  height: 350px;
+  position: relative;
+  transform: scale(1.1);
+  z-index: 1;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  margin-top: 30px;
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+
+
+#price .col2:hover{
+  background: linear-gradient(  #FDBB2D , #7fffd4);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+#price .col2::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url(../images/barber/portrait-mid-adult-bearded-male-barber-with-folded-arms.jpg);
+  background-position: center ;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  transform: rotate(8deg);
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.sayHellow{
+  height: 200px;
+  background-color:var(--border-color);
+}
+/* end section sayhellow */
+#contact .col a{
+  font-size: 2rem;
+}
+#contact .col .socail-icons .icon-circle{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color:var(--custom-btn-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  margin-top: 20px;
+  transition: background-color ease 0.3s;
+  -webkit-transition: background-color ease 0.3s;
+  -moz-transition: background-color ease 0.3s;
+  -ms-transition: background-color ease 0.3s;
+  -o-transition: background-color ease 0.3s;
+}
+
+#contact .col .socail-icons .icon-circle:hover{
+  background-color:var(--primary-color);
+}
+#contact .col2{
+  background-color:#d6a354;
+  height: 200px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  margin-top: 30px;
+
+}
+
+#contact .col2 figcaption{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+ background-color:red;
+  
+  width: 100%;
+  height: 95%;
+  z-index: -1;
+  transform: rotate(8deg);
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+#contact .col2 figcaption i{
+  font-size: 2rem;
+}
+/* end section contact */
+footer{
+  padding: 100px 50px;
+  position: relative;
+}
+footer strong{
+  font-size: 2rem;
+  color: var(--custom-btn-bg-color);
+}
+footer a{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 150px;
+  right: 10px;
+  background-color:var(--border-color);
+}
+/* media query */
+/* media query */
+/* Media Query For Tablet */
+@media only screen and (min-width: 768px) {
+  #header .nave-bar div{ 
+    display: none;
+  }
+  #header .nave-bar ul{
+    bottom:0;
+    width: 33.333%;
+  }
+  #header .nave-bar ul li a::after{
+    content:'';
+  }
+  #header .nave-bar ul li a:hover {
+    color: white;
+  }
+  #header .nave-bar ul li a{
+    padding: 8px;
+    font-weight: 900;
+    letter-spacing: 0.05rem;
+  }
+  /* end header */
+  #ourStory .ourStory-bottom .col{
+    margin-bottom: 70px;
+  }
+  /* start mylayer */
+  .mylayer-service .mylayer-service-item{
+    width: 75%;
+    margin: auto;
+  }
+}
+/* End Media Query For Tablet */
+@media only screen and (min-width: 992px) {
+  	/* header */
+    #header .nave-bar ul{
+      bottom:0;
+      width: 25%;
+    }
+    /* end header */
+    #price .col2{
+      margin: 0px;
+    }
+    /* start mylayer */
+    .mylayer-service .mylayer-service-item{
+      width: 55%;
+      margin: auto;
+    }
+}
+/* Media Query For Desktop */
+@media only screen and (min-width: 1200px) {
+  #ourStory .ourStory-bottom .col{
+    margin-bottom: 0;
+  }
+  /* start mylayer */
+  .mylayer-service .mylayer-service-item{
+    width: 50%;
+  }
+}
+/* End  Media Query For Desktop */
